@@ -90,7 +90,7 @@ onMounted(() => {
         active: true,
       };
     } else {
-      users.value[data.id].unread = currUser.id !== data.id;
+      users.value[data.id].unread = currUser.value.id !== data.id;
     }
   });
   socket.on("user_disconnected", (id) => {
