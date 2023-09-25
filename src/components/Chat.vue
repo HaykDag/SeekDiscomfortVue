@@ -21,7 +21,7 @@
           </div>
         </div>
         <form class="clientChatMessageInput-cnt" @submit.prevent="sendMessage">
-          <input v-model="messageText" type="text" placeholder="Type here..." />
+          <input v-model.trim="messageText" type="text" placeholder="Type here..." />
           <button type="submit">SEND</button>
         </form>
       </div>
@@ -49,6 +49,7 @@ const chatOpen = ref(false);
 const messageList = ref([]);
 
 const sendMessage = () => {
+  if(messageText.value==="") return
   const data = {
     message: messageText.value,
     sentTime: `${new Date().getHours()}:${new Date().getMinutes()}`,
