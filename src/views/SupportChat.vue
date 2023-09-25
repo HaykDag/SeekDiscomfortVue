@@ -33,7 +33,7 @@
       </div>
       <form class="chatMessageInput-cnt" @submit.prevent="sendMessage">
         <input
-          v-model="messageText"
+          v-model.trim="messageText"
           type="text"
           placeholder="Type you message here"
         />
@@ -59,7 +59,7 @@ const filteredMessages = computed(() => {
 });
 
 const sendMessage = () => {
-  if (!socket) return;
+  if (!socket || messageText.value==="") return;
 
   socket.emit("reply", {
     id: currUser.value,
