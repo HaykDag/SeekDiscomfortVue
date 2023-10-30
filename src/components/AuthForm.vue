@@ -32,6 +32,10 @@
         ></v-progress-circular>
       </v-btn>
     </v-form>
+    <div class="demo">
+      <span>login: demo</span>
+      <span>password: demo123</span>
+    </div>
     <p v-if="authStore.error" style="color: red; margin-top: 15px">
       {{ authStore.error }}
     </p>
@@ -96,5 +100,12 @@ const handleSubmit = async () => {
   margin-bottom: 10px;
   text-transform: capitalize;
   user-select: none;
+}
+.demo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+  align-items: center;
 }
 </style>
